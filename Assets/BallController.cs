@@ -32,6 +32,11 @@ public class BallController : MonoBehaviour
             }
         }
     }
+    private void LateUpdate()
+    {
+        //Sets the velocity to a constant value.
+        rigidBody.velocity = (rigidBody.velocity.normalized * speed);
+    }
 
     void FixedUpdate()
     {
