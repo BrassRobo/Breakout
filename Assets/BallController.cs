@@ -8,6 +8,9 @@ public class BallController : MonoBehaviour
     public float speed = 1f;
     private GameManager gameManager;
     public bool isActive;
+    public AudioClip bounceSound;
+    public AudioClip breakSound;
+    public AudioClip deathSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +40,21 @@ public class BallController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
+        if(col.gameObject.tag== "Wall" || col.gameObject.name == "Paddle")
+        {
+            AudioSource.PlayClipAtPoint(bounceSound, new Vector3(0f, 0f, 0f));
+        }
+        else if(col.gameObject.tag == "Brick")
+        {
+            AudioSource.PlayClipAtPoint(breakSound, new Vector3(0f, 0f, 0f));
+        }
+        // Go out of bounds?
+        else if (col.gameObject.name == "Floor") 
+        {
+            AudioSource.PlayClipAtPoint(deathSound, new Vector3(0f, 0f, 0f));
+            gameManager.LoseALife(this);
+        }
+
         // Hit the Racket?
         if (col.gameObject.name == "Paddle")
         {
@@ -45,12 +63,6 @@ public class BallController : MonoBehaviour
 
             // Calculate direction, set length to 1
             moveBall(new Vector2(hitFactor, 1).normalized);
-        }
-
-        // Go out of bounds?
-        if (col.gameObject.name == "Floor")
-        {
-            gameManager.LoseALife(this);
         }
      }
     private void moveBall(Vector2 direction)

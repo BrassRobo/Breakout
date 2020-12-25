@@ -99,7 +99,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 0}
   speed: 9
-  active: 0
+  isActive: 0
+  bounceSound: {fileID: 8300000, guid: 8dca425bfb7e7df40be27b0f94daad67, type: 3}
+  breakSound: {fileID: 8300000, guid: 937fc85bab99b0b46b328a7a323b449d, type: 3}
+  deathSound: {fileID: 8300000, guid: 28b7c01ce03b6e649855ed51d6cc7dac, type: 3}
 --- !u!50 &8417691728577377816
 Rigidbody2D:
   serializedVersion: 4
@@ -130,7 +133,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 8417691728577377813}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: bfb46f8fdf1e0ec4b97b475f9d43d152, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
