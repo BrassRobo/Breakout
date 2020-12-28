@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     private int score=0;
     private int lives = 3;
     public GameObject ballPrefab;
+    public Canvas mainCanvas;
+    public Canvas gameOverCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +39,7 @@ public class GameManager : MonoBehaviour
     }
     public void LoseALife(BallController ball)
     {
+        ball.destroyBall();
         AddToLives(-1);
         if (lives < 1)
         {
@@ -43,14 +47,19 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            ball.destroyBall();
             Instantiate(ballPrefab, new Vector3(0.01632249f, 2.535f, 0), Quaternion.identity);
         }
     }
     
     public void GameOver()
     {
-        //Game Over Screen
+        mainCanvas.enabled = false;
+        gameOverCanvas.enabled = true;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 
 }
