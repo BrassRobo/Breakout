@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraShaderScript : MonoBehaviour
+public class CameraScript : MonoBehaviour
 {
     public float intensity;
     private Material material;
