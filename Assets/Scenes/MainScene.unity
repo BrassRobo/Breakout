@@ -1450,8 +1450,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88606f4a1f3378e418f5bbbcc2f3e741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 0.6
-  shader: {fileID: 4800000, guid: 704532dfbc5594a48a3122b59f62f5e4, type: 3}
+  intensity: 0.8
+  shader: {fileID: 4800000, guid: 20d19cc8eb0d436408c42e1ecd484927, type: 3}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
